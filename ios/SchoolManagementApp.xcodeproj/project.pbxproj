@@ -11,6 +11,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2A310866273ADA7A00F0B844 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A31085D273ADA7900F0B844 /* Inter-Regular.ttf */; };
+		2A310867273ADA7A00F0B844 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A31085E273ADA7900F0B844 /* Inter-Bold.ttf */; };
+		2A310868273ADA7A00F0B844 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A31085F273ADA7900F0B844 /* Inter-ExtraLight.ttf */; };
+		2A310869273ADA7A00F0B844 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A310860273ADA7A00F0B844 /* Inter-Medium.ttf */; };
+		2A31086A273ADA7A00F0B844 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A310861273ADA7A00F0B844 /* Inter-ExtraBold.ttf */; };
+		2A31086B273ADA7A00F0B844 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A310862273ADA7A00F0B844 /* Inter-SemiBold.ttf */; };
+		2A31086C273ADA7A00F0B844 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A310863273ADA7A00F0B844 /* Inter-Black.ttf */; };
+		2A31086D273ADA7A00F0B844 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A310864273ADA7A00F0B844 /* Inter-Thin.ttf */; };
+		2A31086E273ADA7A00F0B844 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A310865273ADA7A00F0B844 /* Inter-Light.ttf */; };
 		6172F2D35A4C3AA820D92908 /* libPods-SchoolManagementApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-SchoolManagementApp.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-SchoolManagementApp-SchoolManagementAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-SchoolManagementApp-SchoolManagementAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -37,6 +46,15 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SchoolManagementApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SchoolManagementApp/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-SchoolManagementApp-SchoolManagementAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolManagementApp-SchoolManagementAppTests.release.xcconfig"; path = "Target Support Files/Pods-SchoolManagementApp-SchoolManagementAppTests/Pods-SchoolManagementApp-SchoolManagementAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		2A31085D273ADA7900F0B844 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		2A31085E273ADA7900F0B844 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		2A31085F273ADA7900F0B844 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2A310860273ADA7A00F0B844 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		2A310861273ADA7A00F0B844 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2A310862273ADA7A00F0B844 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		2A310863273ADA7A00F0B844 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		2A310864273ADA7A00F0B844 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		2A310865273ADA7A00F0B844 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-SchoolManagementApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SchoolManagementApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-SchoolManagementApp-SchoolManagementAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolManagementApp-SchoolManagementAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SchoolManagementApp-SchoolManagementAppTests/Pods-SchoolManagementApp-SchoolManagementAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SchoolManagementApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,6 +114,22 @@
 			name = SchoolManagementApp;
 			sourceTree = "<group>";
 		};
+		2A31085C273ADA4700F0B844 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A310863273ADA7A00F0B844 /* Inter-Black.ttf */,
+				2A31085E273ADA7900F0B844 /* Inter-Bold.ttf */,
+				2A310861273ADA7A00F0B844 /* Inter-ExtraBold.ttf */,
+				2A31085F273ADA7900F0B844 /* Inter-ExtraLight.ttf */,
+				2A310865273ADA7A00F0B844 /* Inter-Light.ttf */,
+				2A310860273ADA7A00F0B844 /* Inter-Medium.ttf */,
+				2A31085D273ADA7900F0B844 /* Inter-Regular.ttf */,
+				2A310862273ADA7A00F0B844 /* Inter-SemiBold.ttf */,
+				2A310864273ADA7A00F0B844 /* Inter-Thin.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +150,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				2A31085C273ADA4700F0B844 /* Resources */,
 				13B07FAE1A68108700A75B9A /* SchoolManagementApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SchoolManagementAppTests */,
@@ -145,7 +180,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-SchoolManagementApp-SchoolManagementAppTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-SchoolManagementApp-SchoolManagementAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -244,6 +278,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				2A31086C273ADA7A00F0B844 /* Inter-Black.ttf in Resources */,
+				2A310868273ADA7A00F0B844 /* Inter-ExtraLight.ttf in Resources */,
+				2A310869273ADA7A00F0B844 /* Inter-Medium.ttf in Resources */,
+				2A31086A273ADA7A00F0B844 /* Inter-ExtraBold.ttf in Resources */,
+				2A31086B273ADA7A00F0B844 /* Inter-SemiBold.ttf in Resources */,
+				2A310866273ADA7A00F0B844 /* Inter-Regular.ttf in Resources */,
+				2A310867273ADA7A00F0B844 /* Inter-Bold.ttf in Resources */,
+				2A31086E273ADA7A00F0B844 /* Inter-Light.ttf in Resources */,
+				2A31086D273ADA7A00F0B844 /* Inter-Thin.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6RQ82FWG8;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SchoolManagementApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,6 +555,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D6RQ82FWG8;
 				INFOPLIST_FILE = SchoolManagementApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
