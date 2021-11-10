@@ -9,12 +9,20 @@ import {
   Button,
 } from 'native-base';
 import {BigSmallTexts, BrandBox} from '../../components';
+import {LOGIN_SCREEN} from '../../navigation/Screens';
+import {navigationService} from '../../services';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = (props: any) => {
   return (
     <VStack flex={1} safeArea>
       <Center alignItems={'center'} justifyContent={'center'} flex={4}>
-        <BrandBox w={106} h={106} marginBottom={35} />
+        <BrandBox
+          w={106}
+          h={106}
+          marginBottom={35}
+          borderRadius={24}
+          fontSize={'4xl'}
+        />
         <BigSmallTexts
           mainText={"E-Özşen'e hoşgeldin"}
           subText={'Devam etmek için giriş yapın'}
@@ -68,6 +76,9 @@ const WelcomeScreen = () => {
           <Button
             size="sm"
             variant="ghost"
+            onPress={() => {
+              navigationService.navigate(props.componentId, LOGIN_SCREEN);
+            }}
             _text={{
               fontWeight: 700,
               fontSize: 14,

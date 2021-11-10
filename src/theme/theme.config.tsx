@@ -35,6 +35,11 @@ export const extendedTheme = extendTheme({
         };
       },
     },
+    Container: {
+      baseStyle: {
+        px: '15px',
+      },
+    },
     Button: {
       defaultProps: {
         colorScheme: 'primary',
@@ -89,3 +94,9 @@ export const extendedTheme = extendTheme({
     initialColorMode: 'light',
   },
 });
+
+type CustomThemeType = typeof extendedTheme;
+
+declare module 'native-base' {
+  interface ICustomTheme extends CustomThemeType {}
+}

@@ -1,5 +1,5 @@
 import {Navigation} from 'react-native-navigation';
-import {WELCOME_SCREEN} from './Screens';
+import {LOGIN_SCREEN, WELCOME_SCREEN} from './Screens';
 import registerScreens from './registerScreens';
 
 registerScreens();
@@ -7,22 +7,17 @@ registerScreens();
 export function initNavigation() {
   Navigation.setDefaultOptions({
     topBar: {
-      background: {
-        color: '#039893',
-      },
       title: {
         color: 'white',
       },
       backButton: {
         title: '', // Remove previous screen name from back button
         color: 'white',
+        visible: true,
       },
     },
     statusBar: {
-      style: 'light',
-    },
-    layout: {
-      orientation: ['portrait'],
+      style: 'dark',
     },
     bottomTabs: {
       titleDisplayMode: 'alwaysShow',
@@ -41,13 +36,20 @@ export function initNavigation() {
         children: [
           {
             component: {
-              name: WELCOME_SCREEN,
+              name: LOGIN_SCREEN,
               options: {
                 topBar: {
                   visible: false,
                 },
-                statusBar: {
-                  style: 'dark',
+              },
+            },
+          },
+          {
+            component: {
+              name: WELCOME_SCREEN,
+              options: {
+                topBar: {
+                  visible: false,
                 },
               },
             },

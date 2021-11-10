@@ -6,12 +6,11 @@ const BrandBox = (props: any) => {
     <Box
       bg={useColorModeValue('primary.500', 'primary.400')}
       {...props}
-      borderRadius={24}
       alignItems="center"
       justifyContent="center">
       <Text
         fontWeight={800}
-        fontSize={'4xl'}
+        fontSize={props.fontSize}
         color={useColorModeValue('white', 'white')}>
         E+
       </Text>
