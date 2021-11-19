@@ -353,6 +353,8 @@ PODS:
     - React-RCTText
   - RNGestureHandler (1.10.3):
     - React-Core
+  - RNKeychain (8.0.0):
+    - React-Core
   - RNSVG (12.1.1):
     - React
   - RNVectorIcons (9.0.0):
@@ -417,6 +419,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -504,6 +507,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-navigation"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNKeychain:
+    :path: "../node_modules/react-native-keychain"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -558,6 +563,7 @@ SPEC CHECKSUMS:
   ReactCommon: c0263c1a41509aeb94be3214fa7bc3b71eae5ef6
   ReactNativeNavigation: f73f769091fc132e9b502f1c92f54cd4a1ece484
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
+  RNKeychain: 4f63aada75ebafd26f4bc2c670199461eab85d94
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
   Yoga: 9a08effa851c1d8cc1647691895540bc168ea65f

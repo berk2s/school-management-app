@@ -45,6 +45,30 @@ export const extendedTheme = extendTheme({
         colorScheme: 'primary',
       },
     },
+    Spinner: {
+      defaultProps: {
+        color: 'white',
+      },
+    },
+    Input: {
+      baseStyle: (props: any) => {
+        return {
+          height: '72px',
+          borderRadius: 8,
+          px: '20px',
+          borderColor: themeTools.mode('accent.100', 'accent.200')(props),
+          color: themeTools.mode('primary.800', 'accent.200')(props),
+          placeholderTextColor: themeTools.mode(
+            'accent.100',
+            'accent.300',
+          )(props),
+        };
+      },
+      defaultProps: {
+        size: 'lg',
+        fontWeight: 700,
+      },
+    },
   },
   fontConfig: {
     Inter: {
