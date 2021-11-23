@@ -4,3 +4,5 @@ export * from './network.types';
 export * from './feed.types';
 export * from './organization.types';
 export * from './page.types';
+export * from './metadata.types';
+export * from './scope.types';

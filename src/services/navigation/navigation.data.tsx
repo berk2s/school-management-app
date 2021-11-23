@@ -3,6 +3,9 @@ import {
   WELCOME_SCREEN,
   FEED_STACK,
   FEED_SCREEN,
+  FEED_DETAILS_SCREEN,
+  CLASSROOM_STACK,
+  CLASSROOM_SCREEN,
 } from '../../navigation/Screens';
 
 export const unAuthenticatedRoot = {
@@ -47,16 +50,77 @@ export const authenticatedRoot = {
             children: [
               {
                 component: {
+                  id: FEED_DETAILS_SCREEN,
+                  name: FEED_DETAILS_SCREEN,
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'Detaylar',
+                      },
+                      largeTitle: {
+                        visible: true,
+                      },
+                    },
+                  },
+                },
+              },
+              {
+                component: {
                   id: FEED_SCREEN,
                   name: FEED_SCREEN,
                   options: {
                     topBar: {
-                      visible: false,
+                      title: {
+                        text: 'Akış',
+                      },
+                      largeTitle: {
+                        visible: true,
+                      },
+                      backButton: {
+                        visible: false,
+                      },
                     },
                   },
                 },
               },
             ],
+
+            options: {
+              bottomTab: {
+                text: 'Akış',
+              },
+            },
+          },
+        },
+        {
+          stack: {
+            id: CLASSROOM_STACK,
+            children: [
+              {
+                component: {
+                  id: CLASSROOM_SCREEN,
+                  name: CLASSROOM_SCREEN,
+                  options: {
+                    topBar: {
+                      title: {
+                        text: 'Sınıfım',
+                      },
+                      largeTitle: {
+                        visible: true,
+                      },
+                      backButton: {
+                        visible: false,
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+            options: {
+              bottomTab: {
+                text: 'Sınıfım',
+              },
+            },
           },
         },
       ],

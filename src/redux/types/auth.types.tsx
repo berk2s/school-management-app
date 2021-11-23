@@ -16,10 +16,10 @@ export interface Tokens {
 }
 
 export interface UserInfo {
-  userId?: string;
-  username?: string;
-  firstName?: string;
-  lastName?: string;
+  userId: string;
+  username: string;
+  firstName: string;
+  lastName: string;
   phoneNumber?: string;
   email?: string;
   userType?: UserType;

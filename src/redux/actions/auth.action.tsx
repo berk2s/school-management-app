@@ -1,5 +1,6 @@
 import {
   authService,
+  ChangingPassword,
   LoginForm,
   loginService,
   tokenService,
@@ -15,6 +16,9 @@ import {
 import {VIEW_ANNOUNCEMENTS, PROFILE_MANAGE} from '@env';
 import {sendFlashNotification} from '.';
 import {setOrganization} from './organization.action';
+import {userService, UpdatingUserProfile} from '../../services';
+import {RootState} from '../reducers';
+import {normalizeScopeArray} from '../../utils/scope-helper';
 
 export function login(loginData: LoginForm) {
   return (dispatch: any) => {
@@ -37,10 +41,9 @@ export function login(loginData: LoginForm) {
         );
 
         dispatch(saveTokens(tokens));
-        dispatch(setAuthStatus(true));
       })
       .then(() => {
-        dispatch(getUserInfo());
+        dispatch(setAuthStatus(true));
       })
       .catch(err => {});
   };
@@ -75,8 +78,45 @@ export function getUserInfo() {
   };
 }
 
+export function updateProfile(updatingProfile: UpdatingUserProfile) {
+  return (dispatch: any) => {
+    return userService
+      .updateProfile(updatingProfile)
+      .then(() => {
+        dispatch(getUserInfo());
+      })
+      .then(() => {
+        dispatch(
+          sendFlashNotification({
+            text: 'Kullanıcı bilgileriniz güncellendi',
+            type: 'success',
+          }),
+        );
+      })
+      .catch(() => {});
+  };
+}
+
+export function changePassword(changingPassword: ChangingPassword) {
+  return (dispatch: any) => {
+    return userService
+      .changePassword(changingPassword)
+      .then(() => {
+        dispatch(
+          sendFlashNotification({
+            text: 'Şifreniz değiştirildi',
+            type: 'success',
+          }),
+        );
+      })
+      .catch(() => {});
+  };
+}
+
 export function refreshTokens(scopes: string = VIEW_ANNOUNCEMENTS) {
   return (dispatch: any) => {
+    console.log('New token has been requested ', scopes);
+
     return tokenService
       .refreshTokens(scopes)
       .then((tokens: Tokens) => {
@@ -105,10 +145,29 @@ export function saveTokens(tokens: Tokens) {
           type: SAVE_TOKENS,
           payload: tokens,
         });
+
+        return tokens.expiresIn;
+      })
+      .then((expiresIn: number) => {
+        dispatch(scheduleRefreshing(expiresIn));
       })
       .then(() => {
         dispatch(getUserInfo());
       })
+      .catch(err => {
+        dispatch(logout());
+      });
+  };
+}
+
+export function scheduleRefreshing(expiresIn: number) {
+  return (dispatch: any, getState: () => RootState) => {
+    const scopes = getState().scope.actualScopes;
+    let _scopes = normalizeScopeArray(scopes);
+
+    return tokenService
+      .scheduleRefreshing(expiresIn, _scopes)
+      .then(() => {})
       .catch(err => {
         dispatch(logout());
       });
@@ -123,6 +182,9 @@ export function logout() {
         dispatch({
           type: AUTH_LOGOUT,
         });
+      })
+      .then(() => {
+        dispatch(setAuthStatus(false));
       })
       .catch(err => {});
   };

@@ -14,6 +14,22 @@ const client = axios.create({
 
 client.interceptors.request.use(
   config => {
+    if (!scopeService.isEndpointRegistered(config.url ? config.url : '')) {
+      console.log(
+        `The Endpoint has not registered to scope data. [endpoint: ${
+          config.url ? config.url : ''
+        }]`,
+      );
+
+      throw new Error(
+        `The Endpoint has not registered to scope data. [endpoint: ${
+          config.url ? config.url : ''
+        }]`,
+      );
+
+      return;
+    }
+
     if (!scopeService.isExcluded(config.url ? config.url : '')) {
       const url = config.url ? config.url : '';
       const method = config.method ? config.method : '';
@@ -47,6 +63,15 @@ client.interceptors.response.use(
   },
   ({response}: {response: AxiosResponse<any>}) => {
     store.dispatch(endFetching());
+
+    if (!response) {
+      store.dispatch(
+        sendFlashNotification({
+          text: translateMessage(-2),
+          type: 'danger',
+        }),
+      );
+    }
 
     console.log(`${response.status} || ${response.config.url}`);
 

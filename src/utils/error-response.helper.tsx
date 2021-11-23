@@ -1,5 +1,9 @@
 const errorMessages = [
   {
+    code: -2,
+    message: 'Sunucuya erişelemiyor.',
+  },
+  {
     code: -1,
     message: 'Beklenmedik bir hata',
   },
@@ -162,6 +166,26 @@ const errorMessages = [
   {
     code: 40,
     message: 'Böyle bir yazışma bulunamadı',
+  },
+  {
+    code: 41,
+    message: 'Resim yüklenirken sorun yaşandı',
+  },
+  {
+    code: 42,
+    message: 'Resim yüklenirken sorun yaşandı',
+  },
+  {
+    code: 43,
+    message: 'Böyle bir sınav kategorisi bulunamadı',
+  },
+  {
+    code: 44,
+    message: 'Mevcut şifre hatalı',
+  },
+  {
+    code: 45,
+    message: 'Yeni şifreler eşleşmiyor',
   },
 ];
 

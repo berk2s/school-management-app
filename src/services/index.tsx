@@ -7,3 +7,6 @@ export * from './scope/scope.service';
 export * from './token/token.service';
 export * from './feed/feed.service';
 export * from './auth/auth.service';
+export * from './metadata';
+export * from './user';
+export * from './validation';

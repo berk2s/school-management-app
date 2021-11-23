@@ -3,6 +3,10 @@ import {TokenRequest, TokenResponse} from './token.types';
 import {TOKEN_URL, CLIENT_ID} from '@env';
 import * as Keychain from 'react-native-keychain';
 import {Tokens} from '../../redux/types';
+import {store} from '../../redux';
+import {refreshTokens as refreshingTokenFromRedux} from '../../redux/actions';
+
+let tokenExpire: any;
 
 export const tokenService = {
   saveTokens,
@@ -10,6 +14,7 @@ export const tokenService = {
   checkAccessToken,
   clearTokens,
   getRefreshToken,
+  scheduleRefreshing,
 };
 
 async function saveTokens(tokens: Tokens): Promise<boolean> {
@@ -83,6 +88,11 @@ async function clearTokens(): Promise<void> {
     username: 'username',
   };
 
+  if (tokenExpire) {
+    clearTimeout(tokenExpire);
+  }
+  await Keychain.resetGenericPassword();
+
   const revokeToken = await apiService.post(
     TOKEN_URL,
     null,
@@ -91,8 +101,6 @@ async function clearTokens(): Promise<void> {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
   );
-
-  await Keychain.resetGenericPassword();
 }
 
 async function getRefreshToken(): Promise<string | null> {
@@ -113,4 +121,30 @@ async function getRefreshToken(): Promise<string | null> {
   }
 
   return refreshToken;
+}
+
+async function scheduleRefreshing(
+  expiresIn: number,
+  scopes: string = '',
+): Promise<void> {
+  if (tokenExpire) {
+    clearTimeout(tokenExpire);
+  }
+
+  try {
+    const refreshToken = await getRefreshToken();
+
+    if (refreshToken) {
+      tokenExpire = setTimeout(async () => {
+        try {
+          store.dispatch(refreshingTokenFromRedux(scopes));
+          console.log(`Token says I have been refreshed [scopes: ${scopes}]`);
+        } catch (error) {
+          Promise.reject(error);
+        }
+      }, ((expiresIn * 75) / 100) * 1000);
+    }
+  } catch (err) {
+    Promise.reject(err);
+  }
 }

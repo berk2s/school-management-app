@@ -9,6 +9,9 @@ export const navigationService = {
   dismissOverlay,
   setRoot,
   prepareOptions,
+  showModal,
+  dismissModal,
+  dismissAllModals,
 };
 
 const initialOptions = {
@@ -20,12 +23,14 @@ const initialOptions = {
 function navigate(
   componentId: string,
   route: Screens,
+  passProps: any = {},
   options: Options = initialOptions,
 ): void {
   Navigation.push(componentId, {
     component: {
       id: route,
       name: route,
+      passProps: passProps,
       options: options,
     },
   });
@@ -60,12 +65,8 @@ function setRoot(isLoggedIn: boolean) {
 function prepareOptions(): void {
   Navigation.setDefaultOptions({
     topBar: {
-      title: {
-        color: 'white',
-      },
+      title: {},
       backButton: {
-        title: '', // Remove previous screen name from back button
-        color: 'white',
         visible: true,
       },
     },
@@ -73,17 +74,35 @@ function prepareOptions(): void {
       style: 'dark',
     },
     bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
-    },
-    bottomTab: {
-      textColor: 'gray',
-      selectedTextColor: 'black',
-      iconColor: 'gray',
-      selectedIconColor: 'black',
+      //  visible: false,
     },
   });
 }
 
 function dismissOverlay(componentId: string) {
   Navigation.dismissOverlay(componentId);
+}
+
+function showModal(modalName: string, options: Options = {}) {
+  Navigation.showModal({
+    stack: {
+      children: [
+        {
+          component: {
+            id: modalName,
+            name: modalName,
+            options: options,
+          },
+        },
+      ],
+    },
+  });
+}
+
+function dismissModal(componentId: string) {
+  Navigation.dismissModal(componentId);
+}
+
+function dismissAllModals() {
+  Navigation.dismissAllModals();
 }

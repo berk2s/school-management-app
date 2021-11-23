@@ -1,9 +1,10 @@
 import {scopesData} from './scope.data';
-import {ActionScopes, RequestMethod} from './scope.types';
+import {RequestMethod} from './scope.types';
 
 export const scopeService = {
   isExcluded,
   findPermission,
+  isEndpointRegistered,
 };
 
 function isExcluded(url: string): boolean {
@@ -55,4 +56,8 @@ function findPermission(url: string, method: RequestMethod): string[] {
   } else {
     return [];
   }
+}
+
+function isEndpointRegistered(url: string): boolean {
+  return scopesData.filter(i => url.startsWith(i.parentUrl)).length > 0;
 }

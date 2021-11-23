@@ -1,73 +1,15 @@
-import {FEED_SCREEN, FEED_STACK, LOGIN_SCREEN, WELCOME_SCREEN} from './Screens';
 import registerScreens from './registerScreens';
 import {store} from '../redux';
 import {navigationService} from '../services';
 import {refreshTokens} from '../redux/actions';
+import {fetchMetadatas} from '../redux/actions/metadata.action';
 
 registerScreens();
-
-const unAuthenticatedRoot = {
-  root: {
-    stack: {
-      children: [
-        {
-          component: {
-            id: LOGIN_SCREEN,
-            name: LOGIN_SCREEN,
-            options: {
-              topBar: {
-                visible: false,
-              },
-            },
-          },
-        },
-        {
-          component: {
-            id: WELCOME_SCREEN,
-            name: WELCOME_SCREEN,
-            options: {
-              topBar: {
-                visible: false,
-              },
-            },
-          },
-        },
-      ],
-    },
-  },
-};
-
-const authenticatedRoot = {
-  root: {
-    bottomTabs: {
-      id: 'BOTTOM_TABS_LAYOUT',
-      children: [
-        {
-          stack: {
-            id: FEED_STACK,
-            children: [
-              {
-                component: {
-                  id: FEED_SCREEN,
-                  name: FEED_SCREEN,
-                  options: {
-                    topBar: {
-                      visible: false,
-                    },
-                  },
-                },
-              },
-            ],
-          },
-        },
-      ],
-    },
-  },
-};
 
 export function initNavigation() {
   navigationService.prepareOptions();
 
+  store.dispatch(fetchMetadatas());
   store.dispatch(refreshTokens());
 
   let oldValue = store.getState().auth.isLoggedIn;

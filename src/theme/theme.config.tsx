@@ -31,7 +31,7 @@ export const extendedTheme = extendTheme({
     VStack: {
       baseStyle: (props: any) => {
         return {
-          bg: themeTools.mode('white', 'coolGray.800')(props),
+          bg: themeTools.mode('white', '#000000')(props),
         };
       },
     },
