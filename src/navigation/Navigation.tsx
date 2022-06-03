@@ -1,59 +1,32 @@
-import {Navigation} from 'react-native-navigation';
-import {WELCOME_SCREEN} from './Screens';
 import registerScreens from './registerScreens';
+import {store} from '../redux';
+import {navigationService} from '../services';
+import {refreshTokens} from '../redux/actions';
+import {fetchMetadatas} from '../redux/actions/metadata.action';
 
 registerScreens();
 
 export function initNavigation() {
-  Navigation.setDefaultOptions({
-    topBar: {
-      background: {
-        color: '#039893',
-      },
-      title: {
-        color: 'white',
-      },
-      backButton: {
-        title: '', // Remove previous screen name from back button
-        color: 'white',
-      },
-    },
-    statusBar: {
-      style: 'light',
-    },
-    layout: {
-      orientation: ['portrait'],
-    },
-    bottomTabs: {
-      titleDisplayMode: 'alwaysShow',
-    },
-    bottomTab: {
-      textColor: 'gray',
-      selectedTextColor: 'black',
-      iconColor: 'gray',
-      selectedIconColor: 'black',
-    },
-  });
+  navigationService.prepareOptions();
 
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: WELCOME_SCREEN,
-              options: {
-                topBar: {
-                  visible: false,
-                },
-                statusBar: {
-                  style: 'dark',
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
+  store.dispatch(fetchMetadatas());
+  store.dispatch(refreshTokens());
+
+  let oldValue = store.getState().auth.isLoggedIn;
+  let counter = 1;
+
+  store.subscribe(() => {
+    const {
+      auth: {isLoggedIn: isLoggedIn},
+    } = store.getState();
+
+    if (oldValue !== isLoggedIn) {
+      navigationService.setRoot(isLoggedIn);
+      oldValue = isLoggedIn;
+    } else if (counter === 1) {
+      navigationService.setRoot(isLoggedIn);
+    }
+
+    counter++;
   });
 }

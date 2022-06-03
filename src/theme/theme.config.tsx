@@ -31,13 +31,42 @@ export const extendedTheme = extendTheme({
     VStack: {
       baseStyle: (props: any) => {
         return {
-          bg: themeTools.mode('white', 'coolGray.800')(props),
+          bg: themeTools.mode('white', '#000000')(props),
         };
+      },
+    },
+    Container: {
+      baseStyle: {
+        px: '15px',
       },
     },
     Button: {
       defaultProps: {
         colorScheme: 'primary',
+      },
+    },
+    Spinner: {
+      defaultProps: {
+        color: 'white',
+      },
+    },
+    Input: {
+      baseStyle: (props: any) => {
+        return {
+          height: '72px',
+          borderRadius: 8,
+          px: '20px',
+          borderColor: themeTools.mode('accent.100', 'accent.200')(props),
+          color: themeTools.mode('primary.800', 'accent.200')(props),
+          placeholderTextColor: themeTools.mode(
+            'accent.100',
+            'accent.300',
+          )(props),
+        };
+      },
+      defaultProps: {
+        size: 'lg',
+        fontWeight: 700,
       },
     },
   },
@@ -89,3 +118,9 @@ export const extendedTheme = extendTheme({
     initialColorMode: 'light',
   },
 });
+
+type CustomThemeType = typeof extendedTheme;
+
+declare module 'native-base' {
+  interface ICustomTheme extends CustomThemeType {}
+}
